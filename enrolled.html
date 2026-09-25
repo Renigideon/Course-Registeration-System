@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enrolled Students</title>
+</head>
+<body >
+    <h1 class="enroll" style="text-align: center;">Enrolled Students</h1> 
+     <div>
+        <table border="1" align="center">
+            <tr align="center" style="background-color: blue;color: white;">
+                <td width="100">name</td>
+                <td width="150">email</td>
+                <td width="150">Course</td>
+            </tr>
+            <tbody align="center" id="enrollTableBody"> </tbody>
+        </table>
+    </div>
+    <script type="text/javascript">
+        fetch("http://localhost:8080/AvailableCourses/enrolled").then((response)=>response.json()).then((enroll)=>{
+            const tablebodys=document.getElementById("enrollTableBody");
+            enroll.forEach(enroll=>{
+                let row=`<tr>
+                    <td>${enroll.name}</td>
+                    <td>${enroll.email}</td>  
+                    <td>${enroll.Course}</td>
+                    </tr>`
+                    tablebodys.innerHTML+=row;
+            })
+            
+        })
+    </script> 
+    
+</body>
+</html>

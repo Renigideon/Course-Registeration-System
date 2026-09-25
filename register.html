@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register For a Course</title>
+</head>
+<body>
+    <div class="full">
+    <div class="headertitle">
+        <h1>START YOUR JOURNEY WITH US!!</h1>
+    </div>
+    <div class="login">
+        <form action="http://localhost:8080/register" method="post">
+            <label for="name">Name:</label>
+            <input type="text" name="name" required><br><br>
+            <label for="email">Email:</label>
+            <input type="email" name="email" required><br><br>
+            <label for="Course">Course:</label>
+           <select name="Course" id="Course" required>
+                <option value="java">Java Development</option>
+                <option value="python">Python Development</option>
+                <option value="design">Design Team</option>
+            </select><br><br><br>
+            <input type="submit" value="Register">
+        </form>
+    </div>
+</body>
+</html>

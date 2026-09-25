@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Available Courses</title>
+</head>
+<body>
+    <h1 style="text-align: center;">Available Courses</h1>
+    <div>
+        <table border="2" align="center">
+            <tr align="center" style="background-color: blue;color: white;">
+                <td width="100">course_id</td>
+                <td width="150">course_name</td>
+                <td width="150">trainer</td>
+                <td width="150">traininginweeks</td>
+            </tr>
+            <tbody align="center" id="courseTableBody"> </tbody>
+        </table>
+    </div>
+    <script type="text/javascript">
+        fetch("http://localhost:8080/AvailableCourses").then((response)=>response.json()).then((courses)=>{
+            const tablebody=document.getElementById("courseTableBody");
+            courses.forEach(course=>{
+                let row=`<tr>
+                    <td>${course.course_id}</td>
+                    <td>${course.course_name}</td>  
+                    <td>${course.Trainer}</td>
+                    <td>${course.traininginweeks}</td>
+                    </tr>`
+                    tablebody.innerHTML+=row;
+            })
+            
+        })
+    </script>
+    
+</body>
+</html>
